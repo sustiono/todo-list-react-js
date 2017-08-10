@@ -1,2 +1,2 @@
-# Todolist-React-Js
-Latihan todolist dengan react js
+# Todo-List-React-Js
+Latihan todo list dengan react js
