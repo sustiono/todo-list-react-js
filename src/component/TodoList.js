@@ -10,6 +10,7 @@ class TodoList extends React.Component {
 					<List key={todo + '- ' + index}
 						todo={todo}
 						index={index}
+						removeTodos={this.props.removeTodos}
 					/>
 				)}
 			</ul>
@@ -18,7 +19,8 @@ class TodoList extends React.Component {
 }
 
 TodoList.propTypes = {
-	todos: PropTypes.array
+	todos: PropTypes.array,
+	removeTodos: PropTypes.func.isRequired
 };
 
 export default TodoList;

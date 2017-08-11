@@ -9,11 +9,18 @@ class TodoPanel extends React.Component {
 	  this.state = {todos: []};
 
 	  this.addTodos = this.addTodos.bind(this);
+	  this.removeTodos = this.removeTodos.bind(this);
 	}
 
 	addTodos(todo) {
 		var todos = this.state.todos;
 		todos.push(todo);
+		this.setState({todos: todos});
+	}
+
+	removeTodos(index) {
+		var todos = this.state.todos;
+		todos.splice(index, 1);
 		this.setState({todos: todos});
 	}
 
@@ -25,7 +32,7 @@ class TodoPanel extends React.Component {
 					<TodoForm addTodos={this.addTodos} />
 				</div>
 				<div className="todo-list">
-					<TodoList todos={this.state.todos} />
+					<TodoList todos={this.state.todos} removeTodos={this.removeTodos} />
 				</div>
 			</div>
 		);

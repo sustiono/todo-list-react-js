@@ -29,6 +29,7 @@ class TodoInput extends React.Component {
 				onChange={this.changeTodo}
 				value={this.state.todo}
 				onKeyDown={this.onAddTodos}
+				autoFocus
 			/>
 		);
 	}
