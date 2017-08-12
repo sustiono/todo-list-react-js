@@ -13,13 +13,14 @@ class TodoInput extends React.Component {
 
 	changeTodo(e) {
 		var todo = e.target.value;
-		this.setState({todo: todo.trim()});
+		this.setState({todo: todo});
 	}
 
 	onAddTodos(e) {
-		if (e.keyCode === 13) {
+		var todo = this.state.todo.trim()
+		if (e.keyCode === 13 && todo) {
 			this.setState({todo: ''});
-			this.props.addTodos(this.state.todo);
+			this.props.addTodos(todo);
 		}
 	}
 
@@ -29,6 +30,7 @@ class TodoInput extends React.Component {
 				onChange={this.changeTodo}
 				value={this.state.todo}
 				onKeyDown={this.onAddTodos}
+				placeholder='What needs to be done?'
 				autoFocus
 			/>
 		);

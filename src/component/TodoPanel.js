@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import '../css/todos.css';
 
 class TodoPanel extends React.Component {
 	constructor(props) {

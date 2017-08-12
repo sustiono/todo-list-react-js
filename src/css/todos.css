@@ -1,0 +1,38 @@
+.todo-panel {
+    margin: auto;
+    width: 500px;
+    background-color: #FFF;
+    box-shadow: 3px 3px 20px #888888;
+}
+
+.todo-input>input {
+	width: 100%;
+	padding: 15px;
+	font-size: 20px;
+	box-sizing: border-box;
+	border: 1px solid #F5F5F5;
+    border-bottom: 3px solid #F5F5F5;
+	outline: none;
+}
+
+.todo-list>ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.todo-list>ul>li {
+	padding: 15px 0;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.list>.list-content {
+	display: inline-block;
+	width: 100%;
+	padding: 0 10px;
+}
+
+.btn-remove-todo:hover {
+	cursor: pointer;
+	color: red;
+}

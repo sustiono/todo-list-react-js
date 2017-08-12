@@ -15,10 +15,14 @@ class List extends React.Component {
 	render() {
 		return (
 			<li className="list">
-				{this.props.todo}
-				<span className="remove-todo" onClick={this.onRemoveTodo}>
-					<i className="fa fa-times" />
-				</span>
+				<div className="list-content">
+					<div className="pull-left list-text">
+						{this.props.todo}
+					</div>
+					<div className="pull-right btn-remove-todo">
+						<i className="fa fa-times" onClick={this.onRemoveTodo} />
+					</div>
+				</div>
 			</li>
 		);
 	}
