@@ -6,8 +6,12 @@ import {Checkbox} from 'react-icheck';
 class List extends React.Component {
 	constructor(props) {
 	  super(props);
+
+	  this.state = {isHover: false};
 	
 	  this.onChangeCheckbox = this.onChangeCheckbox.bind(this);
+	  this.onHoverList = this.onHoverList.bind(this);
+	  this.onMouseLeave = this.onMouseLeave.bind(this);
 	}
 
 	onChangeCheckbox(e) {
@@ -15,11 +19,24 @@ class List extends React.Component {
 		this.props.changeIdexChecked(newIndexChecked);
 	}
 
+	onHoverList() {
+		if (!this.state.isHover) {
+			this.setState({isHover: true});
+		}
+	}
+
+	onMouseLeave() {
+		if (this.state.isHover) {
+			this.setState({isHover: false});
+		}
+	}
+
 	render() {
 		var {todo, index, checked, onRemoveTodo} = this.props;
+		var {isHover} = this.state
 
 		return (
-			<li className="list">
+			<li className="list" onMouseOver={this.onHoverList} onMouseLeave={this.onMouseLeave}>
 				<div className="list-content">
 					<div className="pull-left list-text">
 						<Checkbox
@@ -31,8 +48,8 @@ class List extends React.Component {
 							onChange={this.onChangeCheckbox}
 						/>
 					</div>
-					<div className="pull-right btn-remove-todo">
-						<i className="fa fa-times" onClick={() => onRemoveTodo(index)} />
+					<div className="pull-right btn-remove-todo" style={{display: isHover? 'block' : 'none'}}>
+						<i className="fa fa-times fa-lg" onClick={() => onRemoveTodo(index)} />
 					</div>
 				</div>
 			</li>

@@ -1,3 +1,8 @@
+#todos {
+	position: relative;
+	top: 50px;
+}
+
 .todo-panel {
     margin: auto;
     width: 500px;
@@ -30,6 +35,10 @@
     padding: 10px;
 }
 
+.list-text>label {
+	cursor: pointer;
+}
+
 .list>.list-content {
 	display: inline-block;
 	width: 100%;
@@ -41,7 +50,7 @@
 }
 
 .list-content>.list-text {
-	width: 97%;
+	width: 96%;
 }
 
 .list-text>label {
@@ -53,7 +62,11 @@ label>.iradio_square-green {
 	margin-right: 10px;
 }
 
+.btn-remove-todo {
+	color: #B0B0B0;
+}
+
 .btn-remove-todo:hover {
-	cursor: pointer;
 	color: red;
+	cursor: pointer;
 }
