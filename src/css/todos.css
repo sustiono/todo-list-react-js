@@ -22,14 +22,35 @@
 }
 
 .todo-list>ul>li {
-	padding: 15px 0;
     border-bottom: 1px solid #F5F5F5;
+}
+
+.todo-list>.todo-footer{
+    height: 50px;
+    padding: 10px;
 }
 
 .list>.list-content {
 	display: inline-block;
 	width: 100%;
 	padding: 0 10px;
+    position: relative;
+    top: 2px;
+    height: 50px;
+    line-height: 3.5;
+}
+
+.list-content>.list-text {
+	width: 97%;
+}
+
+.list-text>label {
+	display: block;
+	margin: 0;
+}
+
+label>.iradio_square-green {
+	margin-right: 10px;
 }
 
 .btn-remove-todo:hover {

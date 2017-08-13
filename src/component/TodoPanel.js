@@ -21,12 +21,15 @@ class TodoPanel extends React.Component {
 
 	removeTodos(index) {
 		var todos = this.state.todos;
-		todos.splice(index, 1);
-		this.setState({todos: todos});
+		if (index) {
+			todos.splice(index, 1);
+			this.setState({todos: todos});
+		} else {
+			this.setState({todos: []});
+		}
 	}
 
 	render() {
-		console.log('todos: ', this.state.todos);
 		return (
 			<div className="todo-panel">
 				<div className="todo-form">
