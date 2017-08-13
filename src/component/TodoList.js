@@ -51,7 +51,7 @@ class TodoList extends React.Component {
 		if (todos.length) {
 			return (
 				<TodoFooter
-					ttlIndexCheckeds={this.state.indexCheckeds.length}
+					indexCheckeds={this.state.indexCheckeds}
 					ttlTodos={todos.length}
 					selectAll={this.selectAll}
 					clearSelect={this.clearSelect}

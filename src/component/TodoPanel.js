@@ -21,11 +21,16 @@ class TodoPanel extends React.Component {
 
 	removeTodos(index) {
 		var todos = this.state.todos;
-		if (index) {
+		if (!Array.isArray(index)) {
 			todos.splice(index, 1);
 			this.setState({todos: todos});
 		} else {
-			this.setState({todos: []});
+			if (index.length === todos.length) {
+				this.setState({todos: []});
+			} else {
+				todos = todos.filter((todo, idx) => !index.includes(idx));
+				this.setState({todos: todos});
+			}
 		}
 	}
 

@@ -10,19 +10,19 @@ class TodoFooter extends React.Component {
 	}
 
 	onRemoveTodos() {
-		this.props.removeTodos();
+		this.props.removeTodos(this.props.indexCheckeds);
 		this.props.clearSelect();
 	}
 
 	render() {
-		var {ttlIndexCheckeds, ttlTodos, selectAll, clearSelect} = this.props
+		var {indexCheckeds, ttlTodos, selectAll, clearSelect} = this.props
 
 		return (
 			<li className="todo-footer">
 				<ButtonToolbar>
-				    <Button id='remove-selected' className='pull-right' bsSize="small" disabled={!ttlIndexCheckeds} onClick={this.onRemoveTodos}>Remove Selected</Button>
-				    <Button id='clear-select' className='pull-right' bsSize="small" disabled={!ttlIndexCheckeds} onClick={() => clearSelect()}>Clear Select</Button>
-				    <Button id='select-all' className='pull-right' bsSize="small" disabled={ttlIndexCheckeds === ttlTodos} onClick={() => selectAll()}>Select All</Button>
+				    <Button id='remove-selected' className='pull-right' bsSize="small" disabled={!indexCheckeds.length} onClick={this.onRemoveTodos}>Remove Selected</Button>
+				    <Button id='clear-select' className='pull-right' bsSize="small" disabled={!indexCheckeds.length} onClick={() => clearSelect()}>Clear Select</Button>
+				    <Button id='select-all' className='pull-right' bsSize="small" disabled={indexCheckeds.length === ttlTodos} onClick={() => selectAll()}>Select All</Button>
 				</ButtonToolbar>
 			</li>
 		)
@@ -30,7 +30,7 @@ class TodoFooter extends React.Component {
 }
 
 TodoFooter.propTypes = {
-	ttlIndexCheckeds: PropTypes.number.isRequired,
+	indexCheckeds: PropTypes.array,
 	ttlTodos: PropTypes.number.isRequired,
 	selectAll: PropTypes.func.isRequired,
 	clearSelect: PropTypes.func.isRequired,
