@@ -7,12 +7,7 @@ class List extends React.Component {
 	constructor(props) {
 	  super(props);
 	
-	  this.onRemoveTodo = this.onRemoveTodo.bind(this);
 	  this.onChangeCheckbox = this.onChangeCheckbox.bind(this);
-	}
-
-	onRemoveTodo() {
-		this.props.removeTodos(this.props.index);
 	}
 
 	onChangeCheckbox(e) {
@@ -21,7 +16,7 @@ class List extends React.Component {
 	}
 
 	render() {
-		var {todo, index, checked} = this.props;
+		var {todo, index, checked, onRemoveTodo} = this.props;
 
 		return (
 			<li className="list">
@@ -37,7 +32,7 @@ class List extends React.Component {
 						/>
 					</div>
 					<div className="pull-right btn-remove-todo">
-						<i className="fa fa-times" onClick={this.onRemoveTodo} />
+						<i className="fa fa-times" onClick={() => onRemoveTodo(index)} />
 					</div>
 				</div>
 			</li>
@@ -48,7 +43,7 @@ class List extends React.Component {
 List.propTypes = {
 	todo: PropTypes.string.isRequired,
 	index: PropTypes.number.isRequired,
-	removeTodos: PropTypes.func.isRequired,
+	onRemoveTodo: PropTypes.func.isRequired,
 	changeIdexChecked: PropTypes.func.isRequired,
 	checked: PropTypes.bool.isRequired
 };

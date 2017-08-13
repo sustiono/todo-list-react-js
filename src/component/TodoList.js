@@ -11,6 +11,7 @@ class TodoList extends React.Component {
 
 	  this.changeIdexChecked = this.changeIdexChecked.bind(this);
 	  this.renderFooterTodo = this.renderFooterTodo.bind(this);
+	  this.onRemoveTodo = this.onRemoveTodo.bind(this);
 	  this.getAllIndex = this.getAllIndex.bind(this);
 	  this.selectAll = this.selectAll.bind(this);
 	  this.clearSelect = this.clearSelect.bind(this);
@@ -23,6 +24,25 @@ class TodoList extends React.Component {
 		);
 
 		return index;
+	}
+
+	onRemoveTodo(index) {
+		var {indexCheckeds} = this.state
+		var minValue = Math.min(...indexCheckeds);
+		var maxValue = Math.max(...indexCheckeds);
+		if (indexCheckeds.includes(index)) {
+			indexCheckeds = indexCheckeds.filter((idx) => idx !== index);
+			if (index !== maxValue) {
+				indexCheckeds = indexCheckeds.map((idx) => idx > index ? idx-1 : idx);
+			}
+		} else if (index < minValue) {
+			indexCheckeds = indexCheckeds.map((idx) => idx-1);
+		} else if (index > minValue && index < maxValue) {
+			indexCheckeds = indexCheckeds.map((idx) => idx > index ? idx-1 : idx);
+		}
+
+		this.setState({indexCheckeds: indexCheckeds});
+		this.props.removeTodos(index);
 	}
 
 	changeIdexChecked(value) {
@@ -65,7 +85,7 @@ class TodoList extends React.Component {
 
 	render() {
 		var {indexCheckeds} = this.state
-		var {removeTodos, todos} = this.props
+		var {todos} = this.props
 
 		return (
 			<ul className="todo-list">
@@ -76,7 +96,7 @@ class TodoList extends React.Component {
 						checked={indexCheckeds.includes(index)}
 						indexCheckeds={indexCheckeds}
 						changeIdexChecked={this.changeIdexChecked}
-						removeTodos={removeTodos}
+						onRemoveTodo={this.onRemoveTodo}
 					/>
 				)}
 				{this.renderFooterTodo()}
