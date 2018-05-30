@@ -13,7 +13,7 @@ class TodoInput extends React.Component {
 
 	changeTodo(e) {
 		var todo = e.target.value;
-		this.setState({todo: todo});
+		this.setState({todo});
 	}
 
 	onAddTodos(e) {

@@ -13,8 +13,6 @@ class TodoList extends React.Component {
 	  this.renderFooterTodo = this.renderFooterTodo.bind(this);
 	  this.onRemoveTodo = this.onRemoveTodo.bind(this);
 	  this.getAllIndex = this.getAllIndex.bind(this);
-	  this.selectAll = this.selectAll.bind(this);
-	  this.clearSelect = this.clearSelect.bind(this);
 	}
 
 	getAllIndex(array) {
@@ -22,7 +20,6 @@ class TodoList extends React.Component {
 		array.map((arr, idx) =>
 			index.push(idx)
 		);
-
 		return index;
 	}
 
@@ -41,7 +38,7 @@ class TodoList extends React.Component {
 			indexCheckeds = indexCheckeds.map((idx) => idx > index ? idx-1 : idx);
 		}
 
-		this.setState({indexCheckeds: indexCheckeds});
+		this.setState({indexCheckeds});
 		this.props.removeTodos(index);
 	}
 
@@ -54,16 +51,7 @@ class TodoList extends React.Component {
 			indexCheckeds.push(value);
 		}
 
-		this.setState({indexCheckeds: indexCheckeds});
-	}
-
-	selectAll() {
-		var allIndex = this.getAllIndex(this.props.todos);
-		this.setState({indexCheckeds: allIndex});
-	}
-
-	clearSelect() {
-		this.setState({indexCheckeds: []});
+		this.setState({indexCheckeds});
 	}
 
 	renderFooterTodo() {
@@ -73,8 +61,8 @@ class TodoList extends React.Component {
 				<TodoFooter
 					indexCheckeds={this.state.indexCheckeds}
 					ttlTodos={todos.length}
-					selectAll={this.selectAll}
-					clearSelect={this.clearSelect}
+					selectAll={() => this.setState({indexCheckeds: this.getAllIndex(todos)})}
+					clearSelect={() => this.setState({indexCheckeds: []})}
 					removeTodos={removeTodos}
 				/>
 			)
