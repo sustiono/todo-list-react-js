@@ -14,13 +14,13 @@ class TodoPanel extends React.Component {
 	}
 
 	addTodos(todo) {
-		var todos = [...this.state.todos];
+		let todos = [...this.state.todos];
 		todos.push(todo);
 		this.setState({todos});
 	}
 
 	removeTodos(index) {
-		var todos = [...this.state.todos];
+		let todos = [...this.state.todos];
 		if (!Array.isArray(index)) {
 			todos.splice(index, 1);
 			this.setState({todos});
@@ -34,6 +34,12 @@ class TodoPanel extends React.Component {
 		}
 	}
 
+  editTodo(value, index) {
+    let todos = [...this.state.todos]
+    todos[index] = value
+    this.setState({todos})
+  }
+
 	render() {
 		return (
 			<div className="todo-panel">
@@ -41,7 +47,11 @@ class TodoPanel extends React.Component {
 					<TodoForm addTodos={this.addTodos} />
 				</div>
 				<div className="todo-list">
-					<TodoList todos={this.state.todos} removeTodos={this.removeTodos} />
+					<TodoList
+            todos={this.state.todos}
+            removeTodos={this.removeTodos}
+            editTodo={(value, index) => this.editTodo(value, index)}
+          />
 				</div>
 			</div>
 		);

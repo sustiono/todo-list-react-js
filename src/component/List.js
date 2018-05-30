@@ -15,7 +15,7 @@ class List extends React.Component {
 	}
 
 	onChangeCheckbox(e) {
-		var newIndexChecked = parseInt(e.target.value, 10);
+		let newIndexChecked = parseInt(e.target.value, 10);
 		this.props.changeIdexChecked(newIndexChecked);
 	}
 
@@ -32,24 +32,25 @@ class List extends React.Component {
 	}
 
 	render() {
-		var {todo, index, checked, onRemoveTodo} = this.props;
-		var {isHover} = this.state
+		let {todo, index, checked, onRemoveTodo, setIndexEditing} = this.props;
+		let {isHover} = this.state
 
 		return (
 			<li className="list" onMouseOver={this.onHoverList} onMouseLeave={this.onMouseLeave}>
 				<div className="list-content">
 					<div className="pull-left list-text">
 						<Checkbox
-					  		checkboxClass="iradio_square-green"
-					  		increaseArea="20%"
-					  		label={todo}
-					  		value={index}
+				  		checkboxClass="iradio_square-green"
+				  		increaseArea="20%"
+				  		label={todo}
+				  		value={index}
 							checked={checked}
 							onChange={this.onChangeCheckbox}
 						/>
 					</div>
-					<div className="pull-right btn-remove-todo" style={{display: isHover? 'block' : 'none'}}>
-						<i className="fa fa-times fa-lg" onClick={() => onRemoveTodo(index)} />
+					<div className="pull-right btn-action-todo" style={{display: isHover? 'block' : 'none'}}>
+						<i className="fa fa-pencil edit-icon" onClick={() => setIndexEditing(todo, index)} />
+            <i className="fa fa-times fa-lg remove-icon" onClick={() => onRemoveTodo(index)} />
 					</div>
 				</div>
 			</li>
@@ -60,9 +61,10 @@ class List extends React.Component {
 List.propTypes = {
 	todo: PropTypes.string.isRequired,
 	index: PropTypes.number.isRequired,
-	onRemoveTodo: PropTypes.func.isRequired,
-	changeIdexChecked: PropTypes.func.isRequired,
-	checked: PropTypes.bool.isRequired
+	checked: PropTypes.bool.isRequired,
+  onRemoveTodo: PropTypes.func.isRequired,
+  changeIdexChecked: PropTypes.func.isRequired,
+  setIndexEditing: PropTypes.func.isRequired
 };
 
 export default List;

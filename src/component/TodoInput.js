@@ -12,12 +12,12 @@ class TodoInput extends React.Component {
 	}
 
 	changeTodo(e) {
-		var todo = e.target.value;
+		let todo = e.target.value;
 		this.setState({todo});
 	}
 
 	onAddTodos(e) {
-		var todo = this.state.todo.trim()
+		let todo = this.state.todo.trim()
 		if (e.keyCode === 13 && todo) {
 			this.setState({todo: ''});
 			this.props.addTodos(todo);

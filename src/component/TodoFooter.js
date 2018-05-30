@@ -15,7 +15,7 @@ class TodoFooter extends React.Component {
 	}
 
 	render() {
-		var {indexCheckeds, ttlTodos, selectAll, clearSelect} = this.props
+		let {indexCheckeds, ttlTodos, selectAll, clearSelect} = this.props
 
 		return (
 			<li className="todo-footer">
