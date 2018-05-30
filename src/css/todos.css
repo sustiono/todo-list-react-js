@@ -30,9 +30,13 @@
     border-bottom: 1px solid #F5F5F5;
 }
 
-.todo-list>.todo-footer{
+.todo-list>.todo-footer {
     height: 50px;
     padding: 10px;
+}
+
+.todo-footer Button {
+  margin-right: 10px;
 }
 
 .list-text>label {
@@ -43,10 +47,10 @@
 	display: inline-block;
 	width: 100%;
 	padding: 0 10px;
-    position: relative;
-    top: 2px;
-    height: 50px;
-    line-height: 3.5;
+  position: relative;
+  top: 2px;
+  height: 50px;
+  line-height: 3.5;
 }
 
 .list-content>.list-text {

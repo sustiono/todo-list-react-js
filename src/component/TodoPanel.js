@@ -14,22 +14,22 @@ class TodoPanel extends React.Component {
 	}
 
 	addTodos(todo) {
-		var todos = this.state.todos;
+		var todos = [...this.state.todos];
 		todos.push(todo);
-		this.setState({todos: todos});
+		this.setState({todos});
 	}
 
 	removeTodos(index) {
-		var todos = this.state.todos;
+		var todos = [...this.state.todos];
 		if (!Array.isArray(index)) {
 			todos.splice(index, 1);
-			this.setState({todos: todos});
+			this.setState({todos});
 		} else {
 			if (index.length === todos.length) {
 				this.setState({todos: []});
 			} else {
 				todos = todos.filter((todo, idx) => !index.includes(idx));
-				this.setState({todos: todos});
+				this.setState({todos});
 			}
 		}
 	}

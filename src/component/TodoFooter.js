@@ -21,8 +21,8 @@ class TodoFooter extends React.Component {
 			<li className="todo-footer">
 				<ButtonToolbar>
 				    <Button id='remove-selected' className='pull-right' bsSize="small" disabled={!indexCheckeds.length} onClick={this.onRemoveTodos}>Remove Selected</Button>
-				    <Button id='clear-select' className='pull-right' bsSize="small" disabled={!indexCheckeds.length} onClick={() => clearSelect()}>Clear Select</Button>
-				    <Button id='select-all' className='pull-right' bsSize="small" disabled={indexCheckeds.length === ttlTodos} onClick={() => selectAll()}>Select All</Button>
+				    <Button id='clear-select' className='pull-right' bsSize="small" disabled={!indexCheckeds.length} onClick={() => clearSelect()}>Uncheck All</Button>
+				    <Button id='select-all' className='pull-right' bsSize="small" disabled={indexCheckeds.length === ttlTodos} onClick={() => selectAll()}>Check All</Button>
 				</ButtonToolbar>
 			</li>
 		)
