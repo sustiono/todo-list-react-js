@@ -1,2 +1,10 @@
 # Todo-List-React-Js
-Latihan todo list dengan react js
+Simple todo list using react js
+feature:
+- Create todo
+- Edit todo
+- Delete Todo
+- Delete Multiple
+
+Demo:
+https://todo-list-react-js.herokuapp.com
