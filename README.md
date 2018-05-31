@@ -1,5 +1,6 @@
 # Todo-List-React-Js
-Simple todo list using react js
+Simple todo list using react js.
+
 Feature:
 - Create todo
 - Edit todo
