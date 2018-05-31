@@ -1,6 +1,6 @@
 # Todo-List-React-Js
 Simple todo list using react js
-feature:
+Feature:
 - Create todo
 - Edit todo
 - Delete Todo
